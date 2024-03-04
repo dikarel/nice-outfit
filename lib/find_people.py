@@ -8,8 +8,8 @@ from functools import cache
 
 
 def find_people(image: PILImage) -> PILImage:
-    processor = get_processor()
-    model = get_model()
+    processor = get_seg_processor()
+    model = get_seg_model()
 
     inputs = processor(images=image, return_tensors="pt").to("cuda")
     logits = model(**inputs).logits.cpu()
@@ -31,14 +31,14 @@ def find_people(image: PILImage) -> PILImage:
 
 
 @cache
-def get_processor():
+def get_seg_processor():
     return SegformerImageProcessor.from_pretrained(
         "mattmdjaga/segformer_b2_clothes", device="cuda"
     )
 
 
 @cache
-def get_model():
+def get_seg_model():
     return AutoModelForSemanticSegmentation.from_pretrained(
         "mattmdjaga/segformer_b2_clothes"
     ).to("cuda")
