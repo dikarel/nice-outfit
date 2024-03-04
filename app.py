@@ -7,12 +7,14 @@ from PIL.Image import Image as PILImage
 from lib.resize_image import resize_image
 
 OUTFIT_SELECTION = [
+    "Athletic wear",
+    "Ball gown",
+    "Bridal gown",
+    "Camel trench coat",
+    "Formal suit",
+    "Haute couture",
     "Summer dress",
     "Winter coat",
-    "Bridal gown",
-    "Fall jacket",
-    "Formal wear",
-    "Ripped swole athletic chest",
 ]
 
 
