@@ -1,3 +1,10 @@
+---
+title: Nice outfit!
+emoji: 👗
+app_file: app.py
+pinned: true
+---
+
 # Nice outfit!
 
 ## Quickstart
