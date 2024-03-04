@@ -4,6 +4,7 @@ emoji: 👗
 app_file: app.py
 pinned: true
 sdk: gradio
+suggested_hardware: t4-small
 ---
 
 # Nice outfit!
