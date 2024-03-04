@@ -23,13 +23,13 @@ def main():
                 img_input = gr.Image(label="Image of yourself")
                 drp_outfit = gr.Dropdown(
                     label="Select a new outfit",
-                    choices=OUTFIT_SELECTION.sort(),
+                    choices=sorted(OUTFIT_SELECTION),
                     value=choice(OUTFIT_SELECTION),
                 )
 
             with gr.Column():
                 btn_change = gr.Button(value="Change outfit", variant="primary")
-                img_output = gr.Image(label="Image of you wearing a dress")
+                img_output = gr.Image(label="Image of you wearing the outfit")
 
         btn_change.click(
             generate_output, inputs=[img_input, drp_outfit], outputs=[img_output]
