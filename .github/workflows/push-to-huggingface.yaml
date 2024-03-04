@@ -14,4 +14,4 @@ jobs:
       - name: Push to Huggingface
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push --force https://dikarel:$HF_TOKEN@huggingface.co/spaces/dikarel/nice-outfit main
+        run: git rm demo.gif && git commit -m "remove gif" && git push --force https://dikarel:$HF_TOKEN@huggingface.co/spaces/dikarel/nice-outfit main
