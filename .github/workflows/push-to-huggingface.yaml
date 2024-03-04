@@ -14,4 +14,4 @@ jobs:
       - name: Push to Huggingface
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git push https://dikarel:$HF_TOKEN@huggingface.co/spaces/dikarel/nice-outfit main
+        run: git push --force https://dikarel:$HF_TOKEN@huggingface.co/spaces/dikarel/nice-outfit main
