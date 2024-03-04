@@ -1,0 +1,17 @@
+name: Push to Huggingface
+on:
+  push:
+    branches: [main]
+
+jobs:
+  push-to-huggingface:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          lfs: true
+      - name: Push to Huggingface
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git push https://dikarel:$HF_TOKEN@huggingface.co/spaces/dikarel/nice-outfit main
