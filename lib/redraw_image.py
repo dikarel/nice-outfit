@@ -15,11 +15,12 @@ def redraw_image(prompt: str, image: PILImage, mask: PILImage) -> PILImage:
 
     output = inpaint_model(
         prompt=prompt,
+        negative_prompt="low quality, low resolution, dark, scary, nsfw",
         image=image,
         mask_image=mask,
         width=image.width,
         height=image.height,
-        num_inference_steps=30,
+        num_inference_steps=60,
     ).images[0]
 
     return unpad_image(output, original_image_size)

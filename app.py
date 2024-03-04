@@ -7,12 +7,14 @@ from PIL.Image import Image as PILImage
 from lib.resize_image import resize_image
 
 OUTFIT_SELECTION = [
+    "Camel trench coat",
+    "Fuzzy white winter coat",
+    "Golden ball gown with tiara",
+    "Mondrian-inspired haute couture",
+    "Rock and roll t-shirt",
     "Summer dress",
-    "Winter coat",
-    "Bridal gown",
-    "Fall jacket",
-    "Formal wear",
-    "Ripped swole athletic chest",
+    "Tie dye t-shirt",
+    "Velvet dinner jacket",
 ]
 
 
@@ -44,7 +46,7 @@ def generate_output(img_input: PILImage, drp_outfit: str) -> PILImage:
 
     people_mask = find_people(img_input)
     img_output = redraw_image(
-        prompt=f"person wearing {drp_outfit}",
+        prompt=f"best quality. high 4k resolution. person wearing {drp_outfit}",
         image=img_input,
         mask=people_mask,
     )

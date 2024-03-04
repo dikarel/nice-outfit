@@ -6,6 +6,7 @@ from torch import zeros_like
 from torch.nn.functional import interpolate
 from functools import cache
 from lib.cuda import cuda_if_available
+from lib.expand_mask import expand_mask
 
 
 def find_people(image: PILImage) -> PILImage:
@@ -28,7 +29,12 @@ def find_people(image: PILImage) -> PILImage:
     for type in everyhing_but_background_face_and_hair():
         mask += (predictions == type.value).long()
 
-    return Image.fromarray((mask * 255).byte().numpy(), "L")
+    mask = Image.fromarray((mask * 255).byte().numpy(), "L")
+
+    # Don't have the segmentation be too strict. Loosen it up a bit
+    mask = expand_mask(mask, 20)
+
+    return mask
 
 
 @cache
