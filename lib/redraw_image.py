@@ -3,7 +3,7 @@ from functools import cache
 from diffusers import StableDiffusionInpaintPipeline
 from lib.optimize import optimize_sd_model
 from lib.pad_image import pad_image, unpad_image
-from torch import float16
+from lib.cuda import cuda_if_available, float16_if_available, fp16_if_available
 
 
 def redraw_image(prompt: str, image: PILImage, mask: PILImage) -> PILImage:
@@ -29,8 +29,8 @@ def redraw_image(prompt: str, image: PILImage, mask: PILImage) -> PILImage:
 def get_inpaint_model():
     inpaint_model = StableDiffusionInpaintPipeline.from_pretrained(
         "runwayml/stable-diffusion-inpainting",
-        revision="fp16",
-        torch_dtype=float16,
-    ).to("cuda")
+        revision=fp16_if_available(),
+        torch_dtype=float16_if_available(),
+    ).to(cuda_if_available())
 
     return optimize_sd_model(inpaint_model)
