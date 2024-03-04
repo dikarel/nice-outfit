@@ -1,6 +1,7 @@
 from enum import IntEnum
 
 
+# Magic numbers, as listed in https://huggingface.co/mattmdjaga/segformer_b2_clothes
 class ClothSeg(IntEnum):
     BACKGROUND = 0
     HAT = 1
