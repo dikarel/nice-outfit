@@ -9,6 +9,8 @@ suggested_hardware: t4-small
 
 # Nice outfit!
 
+![Demo of the app](demo.gif)
+
 ## Quickstart
 
 1. `python -m venv venv`
