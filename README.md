@@ -3,6 +3,7 @@ title: Nice outfit!
 emoji: 👗
 app_file: app.py
 pinned: true
+sdk: gradio
 ---
 
 # Nice outfit!
